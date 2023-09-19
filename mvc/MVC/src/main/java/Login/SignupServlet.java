@@ -17,6 +17,11 @@ public class SignupServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	
+    	
+    	req.setCharacterEncoding("UTF-8");    	
+    	
+    	
         // 사용자가 입력한 회원 정보를 가져옵니다.
         String buyerId = req.getParameter("buyerId");
         String buyerPw = req.getParameter("buyerPw");
@@ -24,7 +29,7 @@ public class SignupServlet extends HttpServlet {
         String buyerAddress = req.getParameter("buyerAddress");
 
         // 중복된 아이디 체크
-        LoginDAO3 dao = new LoginDAO3();
+        LoginDAO dao = new LoginDAO();
         boolean id = dao.idCheck(buyerId);
 
         if (buyerId.isEmpty() || buyerPw.isEmpty() || buyerName.isEmpty() || buyerAddress.isEmpty()) {

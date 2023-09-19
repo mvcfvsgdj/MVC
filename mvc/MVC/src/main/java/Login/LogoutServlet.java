@@ -26,6 +26,6 @@ public class LogoutServlet extends HttpServlet {
         // 로그아웃 후 홈 화면으로 리다이렉트
 		//resp.sendRedirect("/PRJ1/home");
 		System.out.println("로그아웃");
-		resp.sendRedirect("/mvc/home"); 
+		resp.sendRedirect("/MVC/home"); 
 	}
 }
