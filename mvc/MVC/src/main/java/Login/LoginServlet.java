@@ -22,9 +22,11 @@ public class LoginServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 사용자가 입력한 ID와 비밀번호를 가져옵니다.
+    //	req.setCharacterEncoding("UTF-8");    	
+       // 사용자가 입력한 ID와 비밀번호를 가져옵니다.
     	LoginService s = new LoginService();
         String inputId = req.getParameter("Id");
+        //로그인 키값
         String inputPw  = req.getParameter("Pw");
         
         // 옵션값을 받아와서 구매회원과 판매회원 구별가능
@@ -50,7 +52,7 @@ public class LoginServlet extends HttpServlet {
         	HttpSession session = req.getSession();
             session.setAttribute("Id", inputId);
             
-            resp.sendRedirect("/mvc/home");
+            resp.sendRedirect("/MVC/home.do");
         } else {
             // 로그인 실패 시
             req.setAttribute("message", "로그인 실패. 아이디 또는 비밀번호를 확인하세요.");       
@@ -58,6 +60,22 @@ public class LoginServlet extends HttpServlet {
         }
 
      
-       
+       /*if (loginResult) {
+    	    // 로그인 성공 시
+    	    HttpSession session = req.getSession();
+    	    session.setAttribute("Id", inputId);
+    	    
+    	    if (option.equals("buyer")) {
+    	        // 구매회원 옵션에 따라 다른 페이지로 이동
+    	        resp.sendRedirect("/MVC/home.do");
+    	    } else if (option.equals("seller")) {
+    	        // 판매회원 옵션에 따라 다른 판매자 전용 페이지로 이동
+    	        resp.sendRedirect("/MVC/sellerHome.do");
+    	    }
+    	} else {
+    	    // 로그인 실패 시
+    	    req.setAttribute("message", "로그인 실패. 아이디 또는 비밀번호를 확인하세요.");       
+    	    req.getRequestDispatcher("/WEB-INF/views/loginResult.jsp").forward(req, resp);
+    	}*/
     }
 }
