@@ -40,7 +40,7 @@ public class GoodsAlterServlet extends HttpServlet{
 		
 		s.alterGoods(new Goods(goodsBrand, goodsName, goodsPrice, goodsStock, goodsCode));
 		
-		resp.sendRedirect("/TeamProject/goodsAlter");
+		resp.sendRedirect("/MVC/goodsAlter");
 	}
 	
 }

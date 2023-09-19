@@ -15,9 +15,9 @@
 </head>
 <body>
 
-    <form action="/TeamProject/seller"><button>판매자페이지로</button></form>
-    <form action="/TeamProject/goodsRegister"><button>등록 페이지로</button></form>
-    <form action="/TeamProject/goodsAlter" method="post">
+    <form action="/MVC/seller"><button>판매자페이지로</button></form>
+    <form action="/MVC/goodsRegister"><button>등록 페이지로</button></form>
+    <form action="/MVC/goodsAlter" method="post">
         <!-- 상품코드 입력란에 id 추가 -->
         상품코드<input type="text" name="goodsCode" id="code" readonly="readonly"><br>
         브랜드 <select name="goodsBrand">

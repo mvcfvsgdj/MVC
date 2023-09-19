@@ -15,8 +15,8 @@
     ArrayList<Goods> list = (ArrayList<Goods>)request.getAttribute("list");
     %>
     
-    <form action="/TeamProject/goodsRegister"><button> </button></form>
-    <form action="/TeamProject/goodsAlter"><button>수정</button></form>
+    <form action="/MVC/goodsRegister"><button>등록</button></form>
+    <form action="/MVC/goodsAlter"><button>수정</button></form>
     <h1>판매자 메인 페이지</h1>
     <table border="1">
         <tr>
@@ -38,7 +38,7 @@
                 <td><%= g.getGoodsPrice() %></td>
                 <td><%= g.getGoodsStock() %></td>
                 <td>
-                <a href="/TeamProject/goodsDelete?goodsCode=<%= g.getGoodsCode()%>"><button>삭제</button></a>
+                <a href="/MVC/goodsDelete?goodsCode=<%= g.getGoodsCode()%>"><button>삭제</button></a>
                 </td>
             </tr>
         <% } %>
@@ -48,17 +48,17 @@
 int index = handler.getGrpStartPage();
 
 if(handler.getCurrentGrp()>1){ %>
-<a href="/TeamProject/seller?p=<%=index-1%>">[이전]</a>
+<a href="/MVC/seller?p=<%=index-1%>">[이전]</a>
 	<%
 }
 while(index <= handler.getGrpEndPage()){
 	%>
-	<a href="/TeamProject/seller?p=<%=index %>">[<%=index %>]</a>
+	<a href="/MVC/seller?p=<%=index %>">[<%=index %>]</a>
 	<%index++;
  }
  if(handler.getGrpEndPage()<handler.getTotalPage()){
 	 %>
-	<a href="/TeamProject/seller?p=<%=handler.getGrpEndPage()+1 %>">[다음]</a>
+	<a href="/MVC/seller?p=<%=handler.getGrpEndPage()+1 %>">[다음]</a>
  <%}
  %>
 </body>
