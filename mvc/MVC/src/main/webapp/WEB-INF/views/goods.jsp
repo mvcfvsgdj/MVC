@@ -8,10 +8,81 @@
 <meta charset="UTF-8">
 <title>웹 페이지</title>
 
+<style>
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	height: 150px;
+	background-color: pink;
+	color: white;
+	text-align: center;
+	line-height: 50px;
+	padding: 10px;
+}
+
+.navbar {
+	height: 70px;
+	background-color: gray;
+	color: white;
+	line-height: 20px;
+}
+
+.navbar ul {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar .left {
+	
+}
+
+.navbar .right {
+	
+}
+
+.navbar li {
+	display: inline;
+	margin-right: 10px;
+}
+
+.body {
+	height: 500px;
+	background-color: bluesky;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.boardZone{
+
+}
+.tableStripedTop{
+	text-align: center;
+	border: 1px solid darkgray;
+	
+}
+
+.tr1{
+	background-color: gray; 
+	text-align: center;
+}
+
+.footer {
+	height: 200px;
+	background-color: yellowgreen;
+	color: black;
+	text-align: center;
+}
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 <script>
 	
 	function send(code){
+		
 		$.ajax({
 			type : "get",
 			dataType : "json",
@@ -23,12 +94,17 @@
 				
 				let str1 = `<thead>
 								<tr>
-									<th></th>
+									<th colspan="6">
+									<button>장바구니</button>
+									</th>
+								</tr>
+								<tr>
 									<th>상품번호</th>
 									<th>상품브랜드</th>
 									<th>상품명</th>
 									<th>상품가격</th>
 									<th>상품재고</th>
+									<th></th>
 								</tr>
 						   </thead>			 
 						   <tbody>`;
@@ -37,23 +113,17 @@
 					let item = data[i];
 			
 			             str1 += "<tr>";
-			             str1  +=   "<td><input type=\"checkbox\"></td>" ;
 			             str1  +=   "<td>"+item.goodsCode+"</td>" ;
 			             str1  +=   "<td>"+item.goodsBrand+"</td>" ;
 			             str1  +=   "<td>"+item.goodsName+"</td>" ;
 			             str1  +=   "<td>"+item.goodsPrice+"</td>";
 			             str1  +=   "<td>"+item.goodsStock+"</td>" ;
+			             str1  +=   "<td><button>담기</button><button>주문</button></td>" ;
 			             str1  += "</tr>";
 				}	 
 				
-				str1 += `<tr>
-							<td colspan="6">
-								<input type="submit" value="담기">
-								<input type="reset"  value="취소">
-							</td>
-						 </tr>
-					</tbody>`;
-						
+				str1  += "</tbody>";	
+				
 				$("#result").append(str1);
 			},
 			error:function(){
@@ -67,6 +137,21 @@
 
 
 <body>
+
+
+			      <%
+            String inputId = (String) session.getAttribute("Id"); %>
+        <%    if (inputId == null) {
+            %>
+            <a href="<%=request.getContextPath()%>/login">로그인</a>
+            <%
+            } else {
+            %>
+            <a href="<%=request.getContextPath()%>/logout">로그아웃</a>
+            <%
+            }
+            %>
+            <a href="<%=request.getContextPath() %>/signup">회원가입</a>
 	
 	<nav>
 		<button value="0" onclick="send(0)">삼성</button>

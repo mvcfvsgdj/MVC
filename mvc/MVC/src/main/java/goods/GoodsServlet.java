@@ -21,5 +21,10 @@ public class GoodsServlet extends HttpServlet{
 		
 		request.getRequestDispatcher("WEB-INF/views/goods.jsp").forward(request, response);
 //		
+		
+	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("WEB-INF/views/goods.jsp").forward(req, resp);
 	}
 }
