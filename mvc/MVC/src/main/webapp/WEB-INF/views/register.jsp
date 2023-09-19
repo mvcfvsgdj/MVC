@@ -12,9 +12,9 @@
     <%
     ArrayList<Goods> list = (ArrayList<Goods>)request.getAttribute("list");
     %>
-    <form action = "/TeamProject/seller"><button>판매자페이지로</button></form>
-    <form action="/TeamProject/goodsAlter"><button>수정 페이지로</button></form>
-    <form action = "/TeamProject/goodsRegister" method = "post">
+    <form action = "/MVC/seller"><button>판매자페이지로</button></form>
+    <form action="/MVC/goodsAlter"><button>수정 페이지로</button></form>
+    <form action = "/MVC/goodsRegister" method = "post">
     상품코드<input type="text" name="goodsCode"><br>
     브랜드 <select name="goodsBrand">
         <option value="0">0:삼성</option>
