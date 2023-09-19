@@ -144,78 +144,43 @@ body {
 	<div class="navbar">
 		<ul>
 			<div class="left">
-	<button value="0" onclick="send(0)">삼성</button>
-		<button value="1" onclick="send(1)">애플</button>
-		<button value="3" onclick="send(2)">전체</button>
-		<button href="<%=request.getContextPath()%>/board">게시판</button>
-			
+				<button value="0" onclick="send(0)">삼성</button>
+				<button value="1" onclick="send(1)">애플</button>
+				<button value="3" onclick="send(2)">전체</button>
+				<button href="<%=request.getContextPath()%>/board">게시판</button>
 			</div>
 			<div class="right">
-			      <%
-            String inputId = (String) session.getAttribute("Id"); %>
-        <%    if (inputId == null) {
-            %>
+				<%
+				String inputId = (String) session.getAttribute("Id");
+				%>
+				<%
+				if (inputId == null) {
+				%>
 				<li> <a href="<%=request.getContextPath()%>/login">로그인</a></li>
-				 <%
-            } else {
-            %>
+				<%
+				} else {
+				%>
 				<li><a href="<%=request.getContextPath()%>/logout">로그아웃</a></li> <%
-            } %>
-            <li> <a href="<%=request.getContextPath() %>/signup">회원가입</a></li>
+				} %>
+				<li> <a href="<%=request.getContextPath() %>/signup">회원가입</a></li>
 			</div>
 		</ul>
 	</div>
 	
-          <section>
+	<section>
 		<form>
-			<table >
-						
-				let str1 = `<thead>
-								<tr>
-									<th colspan="6">
-									<button>장바구니</button>
-									</th>
-								</tr>
-								<tr>
-									<th>상품번호</th>
-									<th>상품브랜드</th>
-									<th>상품명</th>
-									<th>상품가격</th>
-									<th>상품재고</th>
-									<th></th>
-								</tr>
-						   </thead>			 
-						   <tbody>`;
-				
-				for( let i=0; i< data.length ; i++){
-					let item = data[i];
-			
-			             str1 += "<tr>";
-			             str1  +=   "<td>"+item.goodsCode+"</td>" ;
-			             str1  +=   "<td>"+item.goodsBrand+"</td>" ;
-			             str1  +=   "<td>"+item.goodsName+"</td>" ;
-			             str1  +=   "<td>"+item.goodsPrice+"</td>";
-			             str1  +=   "<td>"+item.goodsStock+"</td>" ;
-			             str1  +=   "<td><button>담기</button><button>주문</button></td>" ;
-			             str1  += "</tr>";
-				}	 
-				
-				str1  += "</tbody>";
+			<table id="result">
+				<!-- 여기에 동적으로 생성된 테이블 내용이 들어갈 것입니다. -->
 			</table>
 		 </form>
-	</section> 
+	</section>
     
-
-
-
 	<div class="footer">
 		<p>핸드폰판매 고객센터 이용약관 쇼핑몰 이용약관 개인정보 처리방침 회사정보 회사명에이콘통신 대표 조은경</p>
 		<p>사업자번호181-22-01015 주소 서울특별시 마포구 양화로 122 4층 개인정보관리책임자 박태민 이메일</p>
 		<p>ekzzang@naver.com 판매제휴업체 SKT - 밀수 / KT - 밀수 / LGU+ - 밀수 대표
 			김병진,김민규</p>
 		<p>사업자번호845-82-01440 통신판매업신고번호 : 제2023-서울마포-0015호</p>
-
-
 	</div>
 </body>
 </html>
